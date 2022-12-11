@@ -1,11 +1,14 @@
 
 $(document).ready(function(){
     var activehref=localStorage.activehref; 
-    //localStorage.removeItem("activehref")
-    //localStorage.removeItem("score")
+    // localStorage.removeItem("activehref")
+    // localStorage.removeItem("score")
+    // localStorage.removeItem("allcountries")
+
     if(localStorage.getItem("score") === null){
         localStorage.score=0;
     }
+  
     if(localStorage.getItem("activehref") === null){
         $('.nav-pills li:first .nav-link').addClass("active");
         activehref="#1";
@@ -40,16 +43,27 @@ function  get_data(id){
     else {
     let url="https://restcountries.com/v3.1/region/europe";
     let $arr = new Array;
+    var all = (localStorage.getItem("allcountries")===null)? new Array: JSON.parse(localStorage.allcountries);
+   
     $.getJSON(url, function(json) {
         $.each(json, function(index, value) {
-            const newOption ={"country":value.name.common,"capital":  value.capital?.[0],'id':value.cca2}; 
+            const newOption ={"country":value.name.common,"capital":value.capital?.[0],'id':value.cca2}; 
             $arr.push(newOption);
         });
+        //to avoid duplication of countries
+        $arr = $arr.filter( function( el ) {
+            return all.indexOf( el ) < 0;
+        });
+        //get 1 random country
         let countries= getMultipleRandom($arr, 1);
         let cities = getMultipleRandom($arr, 3);
+        //get unique city
         cities = cities.filter( function( el ) {
           return countries.indexOf( el ) < 0;
         });
+
+        all.push(countries);
+        localStorage.setItem('allcountries', JSON.stringify(all));
         $.each(countries, function(index, value) { 
             cities  = cities.concat(value);
             cities.sort((a, b) =>
