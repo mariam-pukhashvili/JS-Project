@@ -35,7 +35,7 @@ function  get_data(id){
     const nexttab=(parseInt(hrefid)+ +1);
     $('.nav-link[href='+"'#"+nexttab+"'"+']').removeClass("disabled");
     if(hrefid==10){
-        $('.tab-content').append('<div class="row justify-content-center align-items-center p-3 h-75 "><div class="col-md-12"><h4 class="text-center">You have '+ localStorage.score+' correct  answer!</h4></div><div class="col-md-12 text-center"><button type="button" class="btn btn-primary" onclick="startover()">Start Over</button></div></div>');
+        $('.tab-content').append('<div class="row justify-content-center align-items-center p-3 h-75 "><div class="col-md-12"><h4 class="text-center">You have '+ localStorage.score+' correct  answers!</h4></div><div class="col-md-12 text-center"><button type="button" class="btn btn-primary" onclick="startover()">Start Over</button></div></div>');
     }
     else {
     let url="https://restcountries.com/v3.1/region/europe";
