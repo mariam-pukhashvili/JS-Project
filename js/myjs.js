@@ -116,6 +116,7 @@ function getMultipleRandom(arr, num) {
 function startover(){
         localStorage.removeItem("activehref");
         localStorage.removeItem("score");
+        localStorage.removeItem("allcountries")
         $('.nav-pills li:first .nav-link').addClass("active");
         activehref="#1";
         get_data(activehref);
