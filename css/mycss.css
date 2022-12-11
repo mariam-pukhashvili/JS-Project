@@ -1,0 +1,44 @@
+
+body {
+    background-image: url("../images/bckg2.jpg"); 
+    background-color: #cccccc; 
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+  .tab-content{
+      height: 560px!important;
+      background-color: #dae9ff;
+      opacity: 0.9;
+  }
+  .tab-pane{
+     min-height: 400px!important;
+  }
+  .steps {
+      background: #aaa;
+      padding: 1px 0;
+      overflow: hidden;
+  }
+  .steps ul, .steps li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+  .steps ul { float: left; }
+  .steps li {
+      float: left;
+      width: 10%;
+  }
+  .steps li a {
+      display: block;
+      padding: 15px 20px;
+      background: #d0d0d0;
+      color: #fff;
+      line-height: 1.5em;
+      text-decoration: none;
+  }
+  .form-check{
+      padding: 18px 50px;
+      font-size: 18px;
+  }
+  
